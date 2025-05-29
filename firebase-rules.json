@@ -1,0 +1,31 @@
+
+{
+  "rules": {
+    "users": {
+      "$uid": {
+        ".read": "auth != null && auth.uid != null",
+        ".write": "auth != null && auth.uid != null && $uid === auth.uid",
+        "profile": {
+          ".read": "auth != null && auth.uid != null",
+          ".write": "auth != null && auth.uid != null && ($uid === auth.uid || auth.uid === 'oSonmcTdxwSeWsKBf7lXqtA1pLf2')"
+        },
+        "schedule": {
+          ".read": "auth != null && auth.uid != null && ($uid === auth.uid || auth.uid === 'oSonmcTdxwSeWsKBf7lXqtA1pLf2')",
+          ".write": "auth != null && auth.uid != null && ($uid === auth.uid || auth.uid === 'oSonmcTdxwSeWsKBf7lXqtA1pLf2')"
+        },
+        "friends": {
+          ".read": "auth != null && auth.uid != null && $uid === auth.uid",
+          ".write": "auth != null && auth.uid != null && $uid === auth.uid"
+        }
+      }
+    },
+    "usernames": {
+      ".read": "auth != null && auth.uid != null",
+      ".write": "auth != null && auth.uid != null",
+      "$username": {
+        ".read": "auth != null && auth.uid != null",
+        ".write": "auth != null && auth.uid != null"
+      }
+    }
+  }
+}
